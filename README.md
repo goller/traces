@@ -5,6 +5,35 @@ and storing traces into InfluxDB.
 This stores each span of a trace as a unique series within InfluxDB.
 This needs to be InfluxDB 1.4 or greater with TSI.
 
+
+#### Pre-built binaries
+You can get pre-built binaries from here:
+https://github.com/goller/traces/releases
+
+Make sure you have influxdb running and then create the influxdays database:
+
+```
+influx -execute "create database influxdays with duration 2d shard duration 1h"
+```
+
+To run, first start the tier3 server.
+
+```
+tier3
+```
+
+Next, tier2:
+
+```
+tier2
+```
+
+Finally, tier1:
+
+```
+tier1
+```
+
 #### Schema
 Each span of a trace is recorded as a unique series.
 
